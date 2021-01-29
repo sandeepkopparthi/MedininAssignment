@@ -1,0 +1,59 @@
+<div class="container">
+    <!-- <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form>
+            <div class="search-container mt-3">
+                <fa-icon [icon]="faSearch"></fa-icon>
+                <input type="text" placeholder="Search by Name | Mobile Number" class="form-control-plain-text">
+            </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div> -->
+
+    <mat-sidenav-container fullscreen>
+        <mat-sidenav #leftsidenav class="mat-elevation-z4" mode="side" opened="true">
+            <mat-nav-list>
+                <mat-list-item>
+                    <!-- <mat-icon matListIcon *ngIf="{{item.icon}} === 'dashboard'">{{item.icon}}</mat-icon> -->
+                    <h3 matLine>All Patients</h3>
+                    <fa-icon [icon]="faUserInjured" matListIcon></fa-icon>
+                </mat-list-item>
+                <mat-list-item>
+                    <!-- <mat-icon matListIcon *ngIf="{{item.icon}} === 'dashboard'">{{item.icon}}</mat-icon> -->
+                    <h3 matLine>Appointments</h3>
+                    <fa-icon [icon]="faCalendarAlt" matListIcon></fa-icon>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon matListIcon>dashboard</mat-icon>
+                    <h3 matLine>Dashboard</h3>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <form class="m-2">
+                <div class="search-container mt-3">
+                    <fa-icon [icon]="faSearch"></fa-icon>
+                    <input type="text" placeholder="Search by Name | Mobile Number" class="form-control-plain-text">
+                </div>
+            </form>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let patient of patientsList " >
+                    <fa-icon [icon]="faUserCircle" matListIcon></fa-icon>
+                    <h3 matLine>{{patient}}</h3>
+                    <mat-icon matIconSuffix>keyboard_arrow_right</mat-icon>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-sidenav-content>
+        <mat-sidenav #rightsidenav class="mat-elevation-z4" mode="side" opened="true" position="end">
+            <mat-nav-list>
+                <mat-list-item *ngFor="let item of list" >
+                    <mat-icon matListIcon>home</mat-icon>
+                    <h3 matLine>Home</h3>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-sidenav>
+        
+    </mat-sidenav-container>
+</div>
