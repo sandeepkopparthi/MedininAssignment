@@ -35,3 +35,35 @@ fa-icon {
 .form-control-plain-text:focus {
   outline: none;
 }
+
+.mat-drawer-inner-container::-webkit-scrollbar {
+  display: none;
+}
+
+.add-patient {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+}
+
+.delete-patient {
+  position: fixed;
+  width: inherit;
+  bottom: 0;
+  background: white;
+}
+
+.overlay-template.mat-drawer-container {
+  background-color: transparent;
+}
+
+.overlay-template {
+  .mat-drawer.mat-drawer-end {
+    width: 300px !important;
+  }
+}
+
+.overlay-template-content {
+  background-color: #000;
+  opacity: 0.5;
+}

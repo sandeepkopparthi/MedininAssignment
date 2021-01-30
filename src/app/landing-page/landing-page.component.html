@@ -13,7 +13,7 @@
     </div> -->
 
     <mat-sidenav-container fullscreen>
-        <mat-sidenav #leftsidenav class="mat-elevation-z4" mode="side" opened="true">
+        <mat-sidenav #leftsidenav class="mat-elevation-z6" mode="side" opened="true">
             <mat-nav-list>
                 <mat-list-item>
                     <!-- <mat-icon matListIcon *ngIf="{{item.icon}} === 'dashboard'">{{item.icon}}</mat-icon> -->
@@ -45,15 +45,151 @@
                     <mat-icon matIconSuffix>keyboard_arrow_right</mat-icon>
                 </mat-list-item>
             </mat-nav-list>
+            <div class="add-patient">
+                <button mat-fab color="primary" (click)="onAddPatient(overlayTemplate)">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+
         </mat-sidenav-content>
-        <mat-sidenav #rightsidenav class="mat-elevation-z4" mode="side" opened="true" position="end">
-            <mat-nav-list>
-                <mat-list-item *ngFor="let item of list" >
-                    <mat-icon matListIcon>home</mat-icon>
-                    <h3 matLine>Home</h3>
-                </mat-list-item>
-            </mat-nav-list>
+        <mat-sidenav #rightsidenav class="mat-elevation-z6" mode="side" opened="true" position="end">
+            <div class="d-flex flex-column">
+                <div class="mx-auto text-center mt-5">
+                    <fa-icon [icon]="faUserCircle" matListIcon></fa-icon>
+                    <div class="avatar-name">
+                        <h3>Neeraj Nanda</h3>
+                        <p>Last visit 12-Sept-18</p>
+                    </div>
+                </div>
+                <mat-card class="m-3">
+                    <mat-card-content>
+                        <p><fa-icon [icon]="faEdit" class="float-right"></fa-icon></p>
+                        <div class="personal-details">
+                            <p> <span>DOB</span> &nbsp;&nbsp; <span> 18-AUG-1954</span></p>
+                            <p> <span>AGE</span> &nbsp;&nbsp; <span> 63</span></p>
+                            <p> <span>GEN</span> &nbsp;&nbsp; <span> MALE</span></p>
+                            <p> <span>PHN</span> &nbsp;&nbsp; <span> +91 7995237342</span></p>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <!-- <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar>avatar</div>
+                        <mat-card-title>title</mat-card-title>
+                        <mat-card-subtitle>sub-header</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        content
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>actionOne</button>
+                        <button mat-button>actionTwo</button>
+                        </mat-card-actions>
+                </mat-card> -->
+                <mat-card class="m-3">
+                        <mat-card-subtitle>
+                            <div class="d-flex justify-content-between">
+                                <div> ADD ALLERGIES</div>
+                                <div><fa-icon [icon]="faEdit"></fa-icon></div>
+                            </div>
+                        </mat-card-subtitle>
+                    <mat-card-content>
+                        <div class="personal-details">
+                            Latex Allergy, Mold Allerge, Pet Allergy, <br> Pollen Allergy
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="m-3">
+                    <mat-card-subtitle>
+                        <div class="d-flex justify-content-between">
+                            <div> Emergency Contact</div>
+                            <div><fa-icon [icon]="faEdit"></fa-icon></div>
+                        </div>
+                    </mat-card-subtitle>
+                <mat-card-content>
+                        <div class="personal-details">
+                            <p> <span>NME</span> &nbsp;&nbsp; <span> Nandini Veda</span></p>
+                            <p> <span>REL</span> &nbsp;&nbsp; <span> Mother</span></p>
+                            <p> <span>PHN</span> &nbsp;&nbsp; <span> +91 7995237342</span></p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="m-3">
+                <mat-card-subtitle>
+                    <div class="d-flex justify-content-between">
+                        <div> Insurance Info</div>
+                        <div><fa-icon [icon]="faEdit"></fa-icon></div>
+                    </div>
+                </mat-card-subtitle>
+            <mat-card-content>
+                    <div class="personal-details">
+                        <p> <span>PRV</span> &nbsp;&nbsp; <span> AETNA HEALTH</span></p>
+                        <p> <span>FUN</span> &nbsp;&nbsp; <span> ActiveHealth Plan</span></p>
+                        <p> <span>NUM</span> &nbsp;&nbsp; <span> 1324FJN2NNJ2F</span></p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="m-3">
+            <mat-card-subtitle>
+                <div class="d-flex justify-content-between">
+                    <div> ADDRESS</div>
+                    <div><fa-icon [icon]="faEdit"></fa-icon></div>
+                </div>
+            </mat-card-subtitle>
+        <mat-card-content>
+                <div class="personal-details">
+                    2930 Chestnut st. Philadelphia,19104
+            </div>
+        </mat-card-content>
+    </mat-card>
+            </div>
+            <div class="d-flex mt-4">
+                <button mat-stroked-button color="primary" class="delete-patient btn-lg">DELETE PATIENT</button>
+            </div>
         </mat-sidenav>
         
     </mat-sidenav-container>
 </div>
+
+<ng-template  #overlayTemplate let-overlayTemplate="overlayTemplate">
+    <mat-sidenav-container fullscreen class="overlay-template">
+
+    <mat-sidenav-content class="overlay-template-content">
+        <div class="row">
+            <div class="col-md-6">
+                <button mat-icon-button (click)="onOverLayClosed()">
+                    <mat-icon class="text-white">close</mat-icon>
+                </button>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-white">Patient registration <br>
+                (Step 3/3)</h4>
+            </div>
+        </div>
+    </mat-sidenav-content>
+
+    <mat-sidenav class="card-image-nav" #rightsidenavInOverlay class="mat-elevation-z6" mode="side" opened="true" position="end">
+        <mat-card>
+            <!-- <mat-card-header>
+                <div mat-card-avatar>avatar</div>
+                <mat-card-title>title</mat-card-title>
+                <mat-card-subtitle>sub-header</mat-card-subtitle>
+            </mat-card-header> -->
+            <img mat-card-image src="../../assets/abdul kalam.jpeg" alt="card-image">
+            <mat-card-content>
+                <div class="d-flex justify-content-around">
+                <div mat-card-avatar>avatar</div>
+                <div mat-card-avatar>avatar</div>
+                <div mat-card-avatar>avatar</div>
+            </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" class="btn-lg">DONE</button>
+                </mat-card-actions>
+        </mat-card>
+    </mat-sidenav>
+</mat-sidenav-container>
+
+</ng-template>
+
+<!-- <ng-template cdkConnectedOverlay [cdkConnectedOverlayOpen]="isOverlayOpened"></ng-template> -->

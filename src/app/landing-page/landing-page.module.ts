@@ -8,6 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { FullscreenOverlayContainer, OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal'
 
 
 
@@ -22,8 +26,13 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatSidenavModule,
     MatListModule,
+    MatCardModule,
+    MatButtonModule,
+    OverlayModule,
+    PortalModule,
     FontAwesomeModule
   ],
-  exports: [LandingPageComponent]
+  exports: [LandingPageComponent],
+  providers: [{ provide: OverlayContainer, useClass: FullscreenOverlayContainer }]
 })
 export class LandingPageModule { }
