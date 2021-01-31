@@ -11,7 +11,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FullscreenOverlayContainer, OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
-import { PortalModule } from '@angular/cdk/portal'
+import { PortalModule } from '@angular/cdk/portal';
+import { WebcamModule } from 'ngx-webcam';
 
 
 
@@ -30,6 +31,7 @@ import { PortalModule } from '@angular/cdk/portal'
     MatButtonModule,
     OverlayModule,
     PortalModule,
+    WebcamModule,
     FontAwesomeModule
   ],
   exports: [LandingPageComponent],

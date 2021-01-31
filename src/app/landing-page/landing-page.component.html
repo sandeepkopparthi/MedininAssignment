@@ -1,31 +1,16 @@
 <div class="container">
-    <!-- <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <form>
-            <div class="search-container mt-3">
-                <fa-icon [icon]="faSearch"></fa-icon>
-                <input type="text" placeholder="Search by Name | Mobile Number" class="form-control-plain-text">
-            </div>
-            </form>
-        </div>
-        <div class="col-md-3"></div>
-    </div> -->
-
-    <mat-sidenav-container fullscreen>
-        <mat-sidenav #leftsidenav class="mat-elevation-z6" mode="side" opened="true">
-            <mat-nav-list>
-                <mat-list-item>
-                    <!-- <mat-icon matListIcon *ngIf="{{item.icon}} === 'dashboard'">{{item.icon}}</mat-icon> -->
+    <mat-sidenav-container fullscreen class="main-page">
+        <mat-sidenav #leftsidenav class="mat-elevation-z6 side-nav" mode="side" opened="true">
+            <mat-nav-list class="mt-5">
+                <mat-list-item class="left-nav-list-item">
                     <h3 matLine>All Patients</h3>
                     <fa-icon [icon]="faUserInjured" matListIcon></fa-icon>
                 </mat-list-item>
-                <mat-list-item>
-                    <!-- <mat-icon matListIcon *ngIf="{{item.icon}} === 'dashboard'">{{item.icon}}</mat-icon> -->
+                <mat-list-item class="inactive-list-items">
                     <h3 matLine>Appointments</h3>
                     <fa-icon [icon]="faCalendarAlt" matListIcon></fa-icon>
                 </mat-list-item>
-                <mat-list-item>
+                <mat-list-item class="inactive-list-items">
                     <mat-icon matListIcon>dashboard</mat-icon>
                     <h3 matLine>Dashboard</h3>
                 </mat-list-item>
@@ -40,7 +25,7 @@
             </form>
             <mat-nav-list>
                 <mat-list-item *ngFor="let patient of patientsList " >
-                    <fa-icon [icon]="faUserCircle" matListIcon></fa-icon>
+                    <img src="../../assets/abdul kalam.jpeg" alt="Avatar" class="avatar" matListIcon>
                     <h3 matLine>{{patient}}</h3>
                     <mat-icon matIconSuffix>keyboard_arrow_right</mat-icon>
                 </mat-list-item>
@@ -52,18 +37,18 @@
             </div>
 
         </mat-sidenav-content>
-        <mat-sidenav #rightsidenav class="mat-elevation-z6" mode="side" opened="true" position="end">
+        <mat-sidenav #rightsidenav class="mat-elevation-z6 side-nav" mode="side" opened="true" position="end">
             <div class="d-flex flex-column">
-                <div class="mx-auto text-center mt-5">
-                    <fa-icon [icon]="faUserCircle" matListIcon></fa-icon>
+                <div class="mx-auto text-center mt-3">
+                    <img src="../../assets/abdul kalam.jpeg" alt="Avatar" class="avatar" matListIcon>
                     <div class="avatar-name">
                         <h3>Neeraj Nanda</h3>
                         <p>Last visit 12-Sept-18</p>
                     </div>
                 </div>
                 <mat-card class="m-3">
+                    <mat-card-subtitle><fa-icon [icon]="faEdit" class="float-right"></fa-icon></mat-card-subtitle>
                     <mat-card-content>
-                        <p><fa-icon [icon]="faEdit" class="float-right"></fa-icon></p>
                         <div class="personal-details">
                             <p> <span>DOB</span> &nbsp;&nbsp; <span> 18-AUG-1954</span></p>
                             <p> <span>AGE</span> &nbsp;&nbsp; <span> 63</span></p>
@@ -72,25 +57,13 @@
                         </div>
                     </mat-card-content>
                 </mat-card>
-                <!-- <mat-card>
-                    <mat-card-header>
-                        <div mat-card-avatar>avatar</div>
-                        <mat-card-title>title</mat-card-title>
-                        <mat-card-subtitle>sub-header</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        content
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button>actionOne</button>
-                        <button mat-button>actionTwo</button>
-                        </mat-card-actions>
-                </mat-card> -->
                 <mat-card class="m-3">
                         <mat-card-subtitle>
                             <div class="d-flex justify-content-between">
                                 <div> ADD ALLERGIES</div>
-                                <div><fa-icon [icon]="faEdit"></fa-icon></div>
+                                <div>
+                                    <button mat-button class="edit-button">EDIT</button>
+                                </div>
                             </div>
                         </mat-card-subtitle>
                     <mat-card-content>
@@ -102,8 +75,8 @@
                 <mat-card class="m-3">
                     <mat-card-subtitle>
                         <div class="d-flex justify-content-between">
-                            <div> Emergency Contact</div>
-                            <div><fa-icon [icon]="faEdit"></fa-icon></div>
+                            <div> EMERGENCY CONTACT</div>
+                            <div><button mat-button class="edit-button">EDIT</button></div>
                         </div>
                     </mat-card-subtitle>
                 <mat-card-content>
@@ -117,8 +90,8 @@
             <mat-card class="m-3">
                 <mat-card-subtitle>
                     <div class="d-flex justify-content-between">
-                        <div> Insurance Info</div>
-                        <div><fa-icon [icon]="faEdit"></fa-icon></div>
+                        <div> INSURANCE INFO</div>
+                        <div><button mat-button class="edit-button">EDIT</button></div>
                     </div>
                 </mat-card-subtitle>
             <mat-card-content>
@@ -133,7 +106,7 @@
             <mat-card-subtitle>
                 <div class="d-flex justify-content-between">
                     <div> ADDRESS</div>
-                    <div><fa-icon [icon]="faEdit"></fa-icon></div>
+                    <div><button mat-button class="edit-button">EDIT</button></div>
                 </div>
             </mat-card-subtitle>
         <mat-card-content>
@@ -143,9 +116,7 @@
         </mat-card-content>
     </mat-card>
             </div>
-            <div class="d-flex mt-4">
-                <button mat-stroked-button color="primary" class="delete-patient btn-lg">DELETE PATIENT</button>
-            </div>
+                <button mat-stroked-button color="primary" class="delete-patient">DELETE PATIENT</button>
         </mat-sidenav>
         
     </mat-sidenav-container>
@@ -157,39 +128,40 @@
     <mat-sidenav-content class="overlay-template-content">
         <div class="row">
             <div class="col-md-6">
-                <button mat-icon-button (click)="onOverLayClosed()">
-                    <mat-icon class="text-white">close</mat-icon>
+                <button mat-icon-button class="btn-lg" (click)="onOverLayClosed()">
+                    <mat-icon class="text-white close-button">close</mat-icon>
                 </button>
             </div>
             <div class="col-md-6">
-                <h4 class="text-white">Patient registration <br>
-                (Step 3/3)</h4>
+                <h1 class="text-white">Patient registration <br>
+                (Step 3/3)</h1>
             </div>
         </div>
     </mat-sidenav-content>
 
     <mat-sidenav class="card-image-nav" #rightsidenavInOverlay class="mat-elevation-z6" mode="side" opened="true" position="end">
         <mat-card>
-            <!-- <mat-card-header>
-                <div mat-card-avatar>avatar</div>
-                <mat-card-title>title</mat-card-title>
-                <mat-card-subtitle>sub-header</mat-card-subtitle>
-            </mat-card-header> -->
-            <img mat-card-image src="../../assets/abdul kalam.jpeg" alt="card-image">
+            <div>
+                <img *ngIf="!isCameraClicked" mat-card-image src="../../assets/abdul kalam.jpeg" alt="card-image">
+                <webcam *ngIf="isCameraClicked" [height]="500" [width]="500"></webcam>
+                <button mat-mini-fab class="camera-button" (click)="onCameraClick()">
+                    <mat-icon>photo_camera</mat-icon>
+                </button>
+            </div>
+            
+
             <mat-card-content>
                 <div class="d-flex justify-content-around">
-                <div mat-card-avatar>avatar</div>
-                <div mat-card-avatar>avatar</div>
-                <div mat-card-avatar>avatar</div>
+                    <img src="../../assets/abdul kalam.jpeg" alt="Avatar" class="avatar">
+                    <img src="../../assets/abdul kalam.jpeg" alt="Avatar" class="avatar">
+                    <img src="../../assets/abdul kalam.jpeg" alt="Avatar" class="avatar">
             </div>
             </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button color="primary" class="btn-lg">DONE</button>
-                </mat-card-actions>
         </mat-card>
+        <button mat-raised-button class="done-button" color="primary">DONE</button>
     </mat-sidenav>
 </mat-sidenav-container>
 
 </ng-template>
 
-<!-- <ng-template cdkConnectedOverlay [cdkConnectedOverlayOpen]="isOverlayOpened"></ng-template> -->
+

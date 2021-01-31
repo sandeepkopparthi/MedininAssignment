@@ -40,6 +40,66 @@ fa-icon {
   display: none;
 }
 
+.side-nav {
+  background-color: #f0eff4 !important;
+
+  mat-card {
+    background-color: #b1c0c7;
+  }
+
+  fa-icon {
+    color: #82909d !important;
+  }
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.close-button {
+  font-size: 40px !important;
+}
+
+.edit-button {
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, .26) !important;
+  border-radius: 25px;
+  line-height: 20px;
+}
+
+.left-nav-list-item {
+  border-left: 5px solid cyan;
+  color: #673ab7 !important;
+
+  fa-icon {
+    color: #673ab7 !important;
+  }
+}
+
+.inactive-list-items {
+  color: #ccdbea !important;
+
+  fa-icon {
+    color: #ccdbea !important;
+  }
+
+  mat-icon {
+    color: #ccdbea !important;
+  }
+
+}
+
+.main-content {
+  background-color: #fff !important;
+
+  .mat-nav-list .mat-list-item:hover {
+    background-color: #e5e9ec !important;
+  }
+}
+
 .add-patient {
   position: absolute;
   bottom: 2em;
@@ -47,10 +107,15 @@ fa-icon {
 }
 
 .delete-patient {
-  position: fixed;
-  width: inherit;
+  position: absolute;
+  width: 95%;
   bottom: 0;
   background: white;
+  border-radius: 0px !important;
+}
+
+.main-page.mat-drawer-container {
+  background-color: #fff !important;
 }
 
 .overlay-template.mat-drawer-container {
@@ -63,7 +128,31 @@ fa-icon {
   }
 }
 
+.overlay-template {
+
+  .mat-flat-button.mat-accent,
+  .mat-raised-button.mat-accent,
+  .mat-fab.mat-accent,
+  .mat-mini-fab.mat-accent {
+    background-color: transparent;
+  }
+}
+
 .overlay-template-content {
   background-color: #000;
   opacity: 0.5;
+}
+
+.camera-button {
+  position: absolute;
+  bottom: 6rem;
+  right: 0.5rem;
+  background-color: #fff !important;
+}
+
+.done-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px !important;
 }

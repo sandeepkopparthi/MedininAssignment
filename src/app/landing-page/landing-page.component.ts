@@ -7,15 +7,13 @@ import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-
-  // @ViewChild('overlayTemplate') overlayTemplate: TemplateRef<any>;
-
 
 
   faSearch = faSearch;
@@ -25,7 +23,9 @@ export class LandingPageComponent implements OnInit {
   faEdit = faEdit;
 
   isOverlayOpened: boolean = false;
+  isCameraClicked: boolean = false;
   overlayRef;
+
 
   list = [
     { icon: 'faUserInjured', listItem: 'All Patients' },
@@ -36,16 +36,17 @@ export class LandingPageComponent implements OnInit {
   patientsList = ['Baskar Rao', 'Sunil P', 'Neeraj Nanda', 'Suresh Pattu', 'Pooja Fernandes', 'Pooja Fernandes'
   ]
 
-  constructor(public overlay: Overlay, private _viewContainerRef: ViewContainerRef) { }
+  constructor(public overlay: Overlay, private _viewContainerRef: ViewContainerRef) {
+    this.isCameraClicked = false;
+  }
 
   ngOnInit(): void {
   }
 
+
   onAddPatient(overlayTemplate: TemplateRef<any>) {
     this.isOverlayOpened = true;
     this.overlayRef = this.overlay.create({
-      // hasBackdrop: true,
-      // backdropClass: 'cdk-overlay-transparent-backdrop',
       positionStrategy: this.overlay.position().global().centerHorizontally()
     });
     const userProfilePortal = new TemplatePortal(overlayTemplate, this._viewContainerRef);
@@ -53,9 +54,14 @@ export class LandingPageComponent implements OnInit {
 
   }
 
+  onCameraClick() {
+    this.isCameraClicked = true;
+  }
+
   onOverLayClosed() {
     this.isOverlayOpened = false;
     this.overlayRef.detach();
+    this.isCameraClicked = false;
   }
 
 
